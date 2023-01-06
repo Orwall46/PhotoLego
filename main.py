@@ -75,6 +75,7 @@ print(output.size)
 total = len(range(width)) * len(range(height))
 print(f"Total Lego Brings - {total}")
 
+
 # Draw tiles
 for i in range(width):
     for j in range(height):
@@ -84,6 +85,12 @@ for i in range(width):
         index = closest_tiles[i, j]
         # Draw tile
         output.paste(tiles[index], (x, y))
+
+
+with open('pixel_index.txt', 'w') as file:
+    for x in closest_tiles:
+        file.write(str(x))
+        file.write('\n')
 
 
 # Save output
